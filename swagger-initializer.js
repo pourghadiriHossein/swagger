@@ -2,11 +2,11 @@ window.onload = function () {
   //<editor-fold desc="Changeable Configuration Block">
 
   // بررسی وجود Authorization در localStorage
-  let token = localStorage.getItem('Authorization');
+  let token = localStorage.getItem('LocalAuthorization');
   if (!token) {
     token = prompt("لطفاً توکن خود را وارد کنید (فقط توکن بدون Bearer):");
     if (token) {
-      localStorage.setItem('Authorization', 'Bearer ' + token);
+      localStorage.setItem('LocalAuthorization', 'Bearer ' + token);
     } else {
       alert("توکن وارد نشد. بارگذاری متوقف شد.");
       return;
@@ -36,7 +36,7 @@ window.onload = function () {
     docExpansion: true,
     persistAuthorization: true,
     requestInterceptor: (req) => {
-      req.headers['Authorization'] = localStorage.getItem('Authorization');
+      req.headers['Authorization'] = localStorage.getItem('LocalAuthorization');
       return req;
     }
   });
