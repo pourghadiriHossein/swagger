@@ -35,6 +35,7 @@ window.onload = function () {
     layout: "StandaloneLayout",
     docExpansion: true,
     persistAuthorization: true,
+    filter:true,
     requestInterceptor: (req) => {
       req.headers['Authorization'] = localStorage.getItem('LocalAuthorization');
       return req;
